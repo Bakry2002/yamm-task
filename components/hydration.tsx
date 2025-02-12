@@ -1,3 +1,4 @@
+import { getRefundOrders } from '@/lib/services/queries';
 import {
     dehydrate,
     HydrationBoundary,
@@ -19,13 +20,13 @@ export default async function Hydration({
     });
     await Promise.all([
         queryClient.prefetchQuery({
-            queryKey: ['profiles', 'user'],
-            queryFn: () => getData('profiles'),
+            queryKey: ['refund_orders'],
+            queryFn: () => getRefundOrders(),
         }),
-        queryClient.prefetchQuery({
-            queryKey: ['permissions', 'user'],
-            queryFn: () => getData('permissions'),
-        }),
+        // queryClient.prefetchQuery({
+        //     queryKey: ['permissions', 'user'],
+        //     queryFn: () => getData('permissions'),
+        // }),
     ]);
     return (
         <HydrationBoundary state={dehydrate(queryClient)}>
