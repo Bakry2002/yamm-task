@@ -30,7 +30,7 @@ interface TableRowActionsProps {
 }
 
 export const TableRowActions: React.FC<TableRowActionsProps> = ({ data }) => {
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const [open, setOpen] = useState(false);
     const [viewOpen, setViewOpen] = useState(false);
     const router = useRouter();
