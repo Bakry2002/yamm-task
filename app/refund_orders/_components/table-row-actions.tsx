@@ -14,13 +14,7 @@ import {
     SheetTitle,
 } from '@/components/ui/sheet';
 import { RefundOrders } from '@prisma/client';
-import {
-    ClipboardList,
-    Edit,
-    MoreHorizontal,
-    Trash,
-    ViewIcon,
-} from 'lucide-react';
+import { ClipboardList, Edit, MoreHorizontal, ViewIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 // import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -31,7 +25,7 @@ interface TableRowActionsProps {
 
 export const TableRowActions: React.FC<TableRowActionsProps> = ({ data }) => {
     // const [loading, setLoading] = useState(false);
-    const [open, setOpen] = useState(false);
+    // const [open, setOpen] = useState(false);
     const [viewOpen, setViewOpen] = useState(false);
     const router = useRouter();
     // const deleteOrder = useMutation(api.repair_orders.deleteRepairOrder);
@@ -73,10 +67,10 @@ export const TableRowActions: React.FC<TableRowActionsProps> = ({ data }) => {
                     >
                         <Edit className="h-4 w-4" /> Edit
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => setOpen(true)}>
+                    {/* <DropdownMenuItem onClick={() => setOpen(true)}>
                         <Trash className="h-4 w-4" />
                         Delete
-                    </DropdownMenuItem>
+                    </DropdownMenuItem> */}
                 </DropdownMenuContent>
             </DropdownMenu>
 
