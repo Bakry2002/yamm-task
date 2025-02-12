@@ -3,6 +3,7 @@ import { Geist } from 'next/font/google';
 
 import NextTopLoader from 'nextjs-toploader';
 
+import Hydration from '@/components/hydration';
 import AppSidebar from '@/components/layout/app-sidebar';
 import Header from '@/components/layout/header';
 import ReactQueryProvider from '@/components/providers/react-query-provider';
@@ -41,13 +42,15 @@ export default async function RootLayout({ children }: Props) {
                 <NextTopLoader showSpinner={false} />
                 <Toaster />
                 <ReactQueryProvider>
-                    <SidebarProvider defaultOpen={defaultOpen}>
-                        <AppSidebar />
-                        <SidebarInset>
-                            <Header />
-                            {children}
-                        </SidebarInset>
-                    </SidebarProvider>
+                    <Hydration>
+                        <SidebarProvider defaultOpen={defaultOpen}>
+                            <AppSidebar />
+                            <SidebarInset>
+                                <Header />
+                                {children}
+                            </SidebarInset>
+                        </SidebarProvider>
+                    </Hydration>
                 </ReactQueryProvider>
             </body>
         </html>
