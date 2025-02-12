@@ -30,7 +30,7 @@ export const columns: ColumnDef<
                 <TooltipProvider delayDuration={500}>
                     <Tooltip>
                         <TooltipTrigger className="pl-2">
-                            {truncateString(id, 10)}
+                            {truncateString(id, 15)}
                         </TooltipTrigger>
                         <TooltipContent>{id}</TooltipContent>
                     </Tooltip>
@@ -39,20 +39,12 @@ export const columns: ColumnDef<
         },
     },
     {
+        size: 200,
         accessorKey: 'reason',
         header: 'Reasoon',
         cell: ({ row }) => {
             const reason = row.getValue('reason') as string;
-            return (
-                <TooltipProvider delayDuration={500}>
-                    <Tooltip>
-                        <TooltipTrigger className="pl-2">
-                            {truncateString(reason, 50)}
-                        </TooltipTrigger>
-                        <TooltipContent>{reason}</TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
-            );
+            return <span>{reason}</span>;
         },
     },
     {
@@ -82,6 +74,7 @@ export const columns: ColumnDef<
         },
     },
     {
+        size: 60,
         accessorKey: 'amount',
         header: 'Amount',
         cell: ({ row }) => {
@@ -94,6 +87,7 @@ export const columns: ColumnDef<
         },
     },
     {
+        size: 80,
         accessorKey: 'items',
         header: 'Items Count',
         cell: ({ row }) => {
@@ -119,6 +113,7 @@ export const columns: ColumnDef<
         },
     },
     {
+        size: 60,
         accessorKey: 'active',
         header: 'Active',
         cell: ({ row }) => {

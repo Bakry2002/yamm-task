@@ -16,12 +16,22 @@ export default function PageContainer({
         <>
             {scrollable ? (
                 <ScrollArea>
-                    <div className={cn('flex flex-1 p-4 md:px-6', className)}>
+                    <div
+                        className={cn(
+                            'className="[family-name:var(--font-geist-sans)]" flex flex-1 p-4 md:px-6',
+                            className,
+                        )}
+                    >
                         {children}
                     </div>
                 </ScrollArea>
             ) : (
-                <div className={cn('flex flex-1 p-4 md:px-6', className)}>
+                <div
+                    className={cn(
+                        'className="[family-name:var(--font-geist-sans)]" flex flex-1 p-4 md:px-6',
+                        className,
+                    )}
+                >
                     {children}
                 </div>
             )}

@@ -10,11 +10,11 @@ import { cn, formatEnum, getDecisionColor } from '@/lib/utils';
 import { DecicionType } from '@prisma/client';
 
 import {
+    CircleArrowUpIcon,
     CircleCheckIcon,
-    CircleDotDashedIcon,
+    CircleDashedIcon,
     CircleXIcon,
     Loader,
-    LoaderIcon,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -47,13 +47,13 @@ export const OrderDecisionSwitcher = ({
     const getDecisionIcon = (status: DecicionType) => {
         switch (status) {
             case 'PENDING':
-                return <LoaderIcon className="h-4 w-4" />;
+                return <CircleDashedIcon className="h-4 w-4" />;
             case 'ACCEPTED':
                 return <CircleCheckIcon className="h-4 w-4" />;
             case 'REJECTED':
                 return <CircleXIcon className="h-4 w-4" />;
             case 'ESCALATED':
-                return <CircleDotDashedIcon className="h-4 w-4" />;
+                return <CircleArrowUpIcon className="h-4 w-4" />;
             default:
         }
     };
@@ -82,7 +82,7 @@ export const OrderDecisionSwitcher = ({
                     <SelectItem
                         key={decicion}
                         value={decicion}
-                        className="font-medium capitalize"
+                        className="flex flex-row items-center gap-2 font-medium capitalize"
                     >
                         {decicion === 'PENDING'
                             ? 'Not Yet'
