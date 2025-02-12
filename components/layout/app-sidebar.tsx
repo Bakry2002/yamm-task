@@ -21,21 +21,17 @@ import {
 import { navItems } from '@/constants';
 import { ChevronRight, GalleryVerticalEnd } from 'lucide-react';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Icons } from '../icons';
 
 export const company = {
-    name: 'Acme Inc',
+    name: 'Yamm',
     logo: GalleryVerticalEnd,
     plan: 'Enterprise',
 };
 
 export default function AppSidebar({}) {
-    const [isLoading, setIsLoading] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
-    const router = useRouter();
 
     return (
         <Sidebar collapsible="icon" className="rtl:right-0">
