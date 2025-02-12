@@ -25,7 +25,7 @@ export const items = [
     { name: 'The Lord of the Rings', price: 15, quantity: 1 },
     { name: 'The Hobbit', price: 10, quantity: 1 },
     { name: 'Milk', price: 5, quantity: 2 },
-    { name: 'Bread', price: 3, quantity: 1 },
+    { name: 'Bread', price: 3, quantity: 5 },
     { name: 'Laptop', price: 180, quantity: 1 },
     { name: 'Charger', price: 20, quantity: 1 },
     { name: 'Summer Dress', price: 60, quantity: 1 },
@@ -42,7 +42,7 @@ export const refundOrders = [
         store_url: 'https://example.com/tech',
         amount: 150,
         active: true,
-        decicion: DecicionType.ACCEPTED,
+        decicion: DecicionType.PENDING,
         items: [items[0], items[1]], // Indices of items from the items array
     },
     {
@@ -53,7 +53,7 @@ export const refundOrders = [
         store_url: 'https://example.com/fashion',
         amount: 75,
         active: false,
-        decicion: DecicionType.REJECTED,
+        decicion: DecicionType.PENDING,
         items: [items[2]],
     },
     {
@@ -64,7 +64,7 @@ export const refundOrders = [
         store_url: 'https://example.com/books',
         amount: 25,
         active: true,
-        decicion: DecicionType.ESCALATED,
+        decicion: DecicionType.PENDING,
         items: [items[3], items[4]],
     },
     {
@@ -75,7 +75,7 @@ export const refundOrders = [
         store_url: 'https://example.com/grocery',
         amount: 40,
         active: true,
-        decicion: DecicionType.ACCEPTED,
+        decicion: DecicionType.PENDING,
         items: [items[5], items[6]],
     },
     {
@@ -86,7 +86,7 @@ export const refundOrders = [
         store_url: 'https://example.com/grocery',
         amount: 150,
         active: true,
-        decicion: DecicionType.ACCEPTED,
+        decicion: DecicionType.PENDING,
         items: [items[5], items[6]],
     },
     {
@@ -97,7 +97,7 @@ export const refundOrders = [
         store_url: 'https://example.com/electronics',
         amount: 200,
         active: false,
-        decicion: DecicionType.REJECTED,
+        decicion: DecicionType.PENDING,
         items: [items[8], items[9]],
     },
     {
@@ -108,7 +108,7 @@ export const refundOrders = [
         store_url: 'https://example.com/electronics',
         amount: 75,
         active: true,
-        decicion: DecicionType.ESCALATED,
+        decicion: DecicionType.PENDING,
         items: [items[7], items[8]],
     },
     {
@@ -119,7 +119,7 @@ export const refundOrders = [
         store_url: 'https://example.com/fashion',
         amount: 60,
         active: true,
-        decicion: DecicionType.ACCEPTED,
+        decicion: DecicionType.PENDING,
         items: [items[9]],
     },
     {
@@ -130,7 +130,7 @@ export const refundOrders = [
         store_url: 'https://example.com/fashion',
         amount: 90,
         active: false,
-        decicion: DecicionType.REJECTED,
+        decicion: DecicionType.PENDING,
         items: [items[10]],
     },
     {
@@ -141,7 +141,7 @@ export const refundOrders = [
         store_url: 'https://example.com/fashion',
         amount: 45,
         active: true,
-        decicion: DecicionType.ESCALATED,
+        decicion: DecicionType.PENDING,
         items: [items[11]],
     },
     {
@@ -152,7 +152,7 @@ export const refundOrders = [
         store_url: 'https://example.com/gadgets',
         amount: 250,
         active: true,
-        decicion: DecicionType.ESCALATED,
+        decicion: DecicionType.PENDING,
         items: [items[7]], // Laptop
     },
     {
@@ -163,7 +163,7 @@ export const refundOrders = [
         store_url: 'https://example.com/quickship',
         amount: 35,
         active: false,
-        decicion: DecicionType.REJECTED,
+        decicion: DecicionType.PENDING,
         items: [items[3]], // The Lord of the Rings
     },
     {
@@ -174,7 +174,7 @@ export const refundOrders = [
         store_url: 'https://example.com/homedecor',
         amount: 80,
         active: true,
-        decicion: DecicionType.ACCEPTED,
+        decicion: DecicionType.PENDING,
         items: [items[11]], // Jeans
     },
     {
@@ -185,7 +185,7 @@ export const refundOrders = [
         store_url: 'https://example.com/onlinemarket',
         amount: 120,
         active: false,
-        decicion: DecicionType.REJECTED,
+        decicion: DecicionType.PENDING,
         items: [items[2]], // Red Dress
     },
     {
@@ -196,7 +196,7 @@ export const refundOrders = [
         store_url: 'https://example.com/sportscentral',
         amount: 65,
         active: true,
-        decicion: DecicionType.ACCEPTED,
+        decicion: DecicionType.PENDING,
         items: [items[0], items[1]], // Gaming Headset and Mousepad
     },
     {
@@ -207,7 +207,7 @@ export const refundOrders = [
         store_url: 'https://example.com/musicworld',
         amount: 95,
         active: true,
-        decicion: DecicionType.ESCALATED,
+        decicion: DecicionType.PENDING,
         items: [items[7]], // Laptop
     },
 ];
