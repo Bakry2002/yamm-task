@@ -37,7 +37,8 @@ export const refundOrders = [
     {
         reason: 'Damaged item received',
         store_name: 'Tech Emporium',
-        store_logo: 'https://example.com/tech-logo.png',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-294_uudf4f.svg',
         store_url: 'https://example.com/tech',
         amount: 150,
         active: true,
@@ -47,7 +48,8 @@ export const refundOrders = [
     {
         reason: 'Incorrect item shipped',
         store_name: 'Fashion Hub',
-        store_logo: 'https://example.com/fashion-logo.png',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-294_uudf4f.svg',
         store_url: 'https://example.com/fashion',
         amount: 75,
         active: false,
@@ -57,7 +59,8 @@ export const refundOrders = [
     {
         reason: 'Late delivery',
         store_name: 'Bookworm Haven',
-        store_logo: 'https://example.com/book-logo.png',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-294_uudf4f.svg',
         store_url: 'https://example.com/books',
         amount: 25,
         active: true,
@@ -67,7 +70,8 @@ export const refundOrders = [
     {
         reason: 'Missing items',
         store_name: 'Grocery Mart',
-        store_logo: 'https://example.com/grocery-logo.png',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-294_uudf4f.svg',
         store_url: 'https://example.com/grocery',
         amount: 40,
         active: true,
@@ -77,7 +81,8 @@ export const refundOrders = [
     {
         reason: 'Too expensive',
         store_name: 'Grocery Mart',
-        store_logo: 'https://example.com/grocery-logo.png',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-294_uudf4f.svg',
         store_url: 'https://example.com/grocery',
         amount: 150,
         active: true,
@@ -87,7 +92,8 @@ export const refundOrders = [
     {
         reason: 'Changed my mind',
         store_name: 'Electronics Emporium',
-        store_logo: 'https://example.com/electronics-logo.png',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-294_uudf4f.svg',
         store_url: 'https://example.com/electronics',
         amount: 200,
         active: false,
@@ -97,7 +103,8 @@ export const refundOrders = [
     {
         reason: 'Not as expected',
         store_name: 'Electronics Emporium',
-        store_logo: 'https://example.com/electronics-logo.png',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-294_uudf4f.svg',
         store_url: 'https://example.com/electronics',
         amount: 75,
         active: true,
@@ -107,7 +114,8 @@ export const refundOrders = [
     {
         reason: 'Arrived broken',
         store_name: 'Fashion Boutique',
-        store_logo: 'https://example.com/fashion-logo.png',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370824/logoipsum-299_tiyzn1.svg',
         store_url: 'https://example.com/fashion',
         amount: 60,
         active: true,
@@ -117,7 +125,8 @@ export const refundOrders = [
     {
         reason: 'Wrong color',
         store_name: 'Fashion Boutique',
-        store_logo: 'https://example.com/fashion-logo.png',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370824/logoipsum-299_tiyzn1.svg',
         store_url: 'https://example.com/fashion',
         amount: 90,
         active: false,
@@ -127,7 +136,8 @@ export const refundOrders = [
     {
         reason: 'Too small',
         store_name: 'Fashion Boutique',
-        store_logo: 'https://example.com/fashion-logo.png',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-339_g3ps2u.svg',
         store_url: 'https://example.com/fashion',
         amount: 45,
         active: true,
@@ -137,7 +147,8 @@ export const refundOrders = [
     {
         reason: 'Product malfunction',
         store_name: 'Gadget World',
-        store_logo: 'https://example.com/gadget-logo.png',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-339_g3ps2u.svg',
         store_url: 'https://example.com/gadgets',
         amount: 250,
         active: true,
@@ -147,7 +158,8 @@ export const refundOrders = [
     {
         reason: 'Delivery delay',
         store_name: 'Quick Ship',
-        store_logo: 'https://example.com/quickship-logo.png',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-339_g3ps2u.svg',
         store_url: 'https://example.com/quickship',
         amount: 35,
         active: false,
@@ -157,7 +169,8 @@ export const refundOrders = [
     {
         reason: 'Item not as described',
         store_name: 'Home Decor',
-        store_logo: 'https://example.com/homedecor-logo.png',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370824/logoipsum-338_rjec78.svg',
         store_url: 'https://example.com/homedecor',
         amount: 80,
         active: true,
@@ -167,7 +180,8 @@ export const refundOrders = [
     {
         reason: 'Duplicate order',
         store_name: 'Online Marketplace',
-        store_logo: 'https://example.com/onlinemarket-logo.png',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370824/logoipsum-346_bc2ozx.svg',
         store_url: 'https://example.com/onlinemarket',
         amount: 120,
         active: false,
@@ -177,7 +191,8 @@ export const refundOrders = [
     {
         reason: 'Wrong item received',
         store_name: 'Sports Central',
-        store_logo: 'https://example.com/sportscentral-logo.png',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370824/logoipsum-327_xnx6zf.svg',
         store_url: 'https://example.com/sportscentral',
         amount: 65,
         active: true,
@@ -187,7 +202,8 @@ export const refundOrders = [
     {
         reason: 'Unwanted item',
         store_name: 'Music World',
-        store_logo: 'https://example.com/musicworld-logo.png',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-340_ndfjeg.svg',
         store_url: 'https://example.com/musicworld',
         amount: 95,
         active: true,

@@ -12,8 +12,6 @@ export const RefundOrderListing = () => {
         queryFn: () => getRefundOrders(),
     });
 
-    console.log({ orders });
-
     return isLoading ? (
         <DataTableSkeleton columnCount={5} rowCount={10} />
     ) : (

@@ -7,11 +7,18 @@ import {
     TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { truncateString } from '@/lib/utils';
-import { RefundOrders } from '@prisma/client';
+import { Item, RefundOrders } from '@prisma/client';
 import { ColumnDef } from '@tanstack/react-table';
+import Image from 'next/image';
+import Link from 'next/link';
+import { OrderDecisionSwitcher } from './order-decision-switcher';
 import { TableRowActions } from './table-row-actions';
 
-export const columns: ColumnDef<RefundOrders>[] = [
+export const columns: ColumnDef<
+    RefundOrders & {
+        items: Item[];
+    }
+>[] = [
     {
         accessorKey: 'id',
         header: 'ID',
@@ -34,16 +41,78 @@ export const columns: ColumnDef<RefundOrders>[] = [
         header: 'Reasoon',
         cell: ({ row }) => {
             const reason = row.getValue('reason') as string;
-            console.log('Reason', reason);
             return (
                 <TooltipProvider delayDuration={500}>
                     <Tooltip>
                         <TooltipTrigger className="pl-2">
-                            {truncateString(reason, 10)}
+                            {truncateString(reason, 50)}
                         </TooltipTrigger>
                         <TooltipContent>{reason}</TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
+            );
+        },
+    },
+    {
+        accessorKey: 'store_name',
+        header: 'Store',
+        cell: ({ row }) => {
+            const store_name = row.getValue('store_name') as string;
+            const store_logo = row.original.store_logo;
+            const store_url = row.original.store_url;
+            return (
+                <div className="flex items-center gap-2">
+                    <Image
+                        src={store_logo}
+                        alt="Store logo"
+                        width={28}
+                        height={28}
+                    />
+                    <Link
+                        href={store_url}
+                        target="_blank"
+                        className="transition-colors hover:text-blue-600 hover:underline"
+                    >
+                        {store_name}
+                    </Link>
+                </div>
+            );
+        },
+    },
+    {
+        accessorKey: 'amount',
+        header: 'Amount',
+        cell: ({ row }) => {
+            const amount = row.getValue('amount') as string;
+            return (
+                <span>
+                    {amount} <small>SAR</small>
+                </span>
+            );
+        },
+    },
+    {
+        accessorKey: 'items',
+        header: 'Items Count',
+        cell: ({ row }) => {
+            const itemsCount = row.original.items.length;
+            return (
+                <span>
+                    {itemsCount} {itemsCount === 1 ? 'Item' : 'Items'}
+                </span>
+            );
+        },
+    },
+    {
+        size: 100,
+        accessorKey: 'decicion',
+        header: 'Decicion',
+        cell: ({ row }) => {
+            return (
+                <OrderDecisionSwitcher
+                    orderId={row.original.id}
+                    currentDecision={row.original.decicion}
+                />
             );
         },
     },
