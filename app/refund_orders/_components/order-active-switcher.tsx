@@ -1,28 +1,3 @@
-// import { Switch } from '@/components/ui/switch';
-// import { useToggleRefundOrderActivation } from '@/lib/services/mutations';
-
-// interface OrderActiveSwitcherProps {
-//     orderId: string;
-//     currentValue: boolean;
-// }
-// export const OrderActiveSwitcher = ({
-//     orderId,
-//     currentValue,
-// }: OrderActiveSwitcherProps) => {
-//     const { mutateAsync: toggleActivation, isPending } =
-//         useToggleRefundOrderActivation();
-
-//     const handleToggle = async () => {
-//         try {
-//             await toggleActivation({ id: orderId, newValue: !currentValue });
-//         } catch (error) {
-//             console.error(error);
-//         }
-//     };
-
-//     return <Switch checked={currentValue} onCheckedChange={handleToggle} />;
-// };
-
 import { Switch } from '@/components/ui/switch';
 import { useToggleRefundOrderActivation } from '@/lib/services/mutations';
 import { useState } from 'react';
