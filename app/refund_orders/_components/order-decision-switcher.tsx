@@ -70,7 +70,7 @@ export const OrderDecisionSwitcher = ({
                     {isLoading ? (
                         <Loader className="size-3 flex-1 animate-spin text-muted-foreground" />
                     ) : (
-                        <div className="flex flex-1 items-center gap-2">
+                        <div className="flex flex-1 items-center gap-2 font-medium capitalize">
                             {getDecisionIcon(currentDecision)}
                             <SelectValue placeholder={currentDecision} />
                         </div>
@@ -82,9 +82,11 @@ export const OrderDecisionSwitcher = ({
                     <SelectItem
                         key={decicion}
                         value={decicion}
-                        className="capitalize"
+                        className="font-medium capitalize"
                     >
-                        {formatEnum(decicion)}
+                        {decicion === 'PENDING'
+                            ? 'Not Yet'
+                            : formatEnum(decicion)}
                     </SelectItem>
                 ))}
             </SelectContent>

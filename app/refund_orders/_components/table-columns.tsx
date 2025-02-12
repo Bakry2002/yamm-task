@@ -1,19 +1,20 @@
 'use client';
 
+import { buttonVariants } from '@/components/ui/button';
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { truncateString } from '@/lib/utils';
+import { cn, truncateString } from '@/lib/utils';
 import { Item, RefundOrders } from '@prisma/client';
 import { ColumnDef } from '@tanstack/react-table';
+import { ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { OrderActiveSwitcher } from './order-active-switcher';
 import { OrderDecisionSwitcher } from './order-decision-switcher';
-import { TableRowActions } from './table-row-actions';
 
 export const columns: ColumnDef<
     RefundOrders & {
@@ -66,8 +67,8 @@ export const columns: ColumnDef<
                     <Image
                         src={store_logo}
                         alt="Store logo"
-                        width={28}
-                        height={28}
+                        width={20}
+                        height={20}
                     />
                     <Link
                         href={store_url}
@@ -105,6 +106,7 @@ export const columns: ColumnDef<
         },
     },
     {
+        size: 60,
         accessorKey: 'decicion',
         header: 'Decicion',
         cell: ({ row }) => {
@@ -128,108 +130,34 @@ export const columns: ColumnDef<
             );
         },
     },
-    // {
-    //     size: 100,
-    //     accessorKey: 'licensePlate',
-    //     header: () => (
-    //         <TranslateText
-    //             text="License Plate"
-    //             translationKey="Dashboard.repairOrders"
-    //         />
-    //     ),
-    //     cell: ({ row }) => {
-    //         const licensePlate = row.original.licensePlate || '';
-
-    //         return <LicensePlate licensePlate={licensePlate} />;
-    //     },
-    // },
-    // {
-    //     accessorKey: 'ownerName',
-    //     header: () => (
-    //         <TranslateText
-    //             text="Owner Name"
-    //             translationKey="Dashboard.repairOrders"
-    //         />
-    //     ),
-    // },
-    // {
-    //     accessorKey: 'ownerContact',
-    //     header: () => (
-    //         <TranslateText
-    //             text="Contact"
-    //             translationKey="Dashboard.repairOrders"
-    //         />
-    //     ),
-    //     cell: ({ row }) => {
-    //         const contact = row.original.ownerContact || '';
-    //         return <OwnerContactCell contact={contact} />;
-    //     },
-    // },
-    // {
-    //     size: 150,
-    //     accessorKey: 'estimatedCompletionDate',
-    //     header: () => (
-    //         <TranslateText
-    //             text="Deadline"
-    //             translationKey="Dashboard.repairOrders"
-    //         />
-    //     ),
-    //     cell: ({ row }) => {
-    //         const date = row.original.estimatedCompletionDate || '';
-    //         const locale = useLocale();
-    //         const passedDeadline =
-    //             date < new Date().toISOString() &&
-    //             (row.original.status === RepairOrderStatus.Pending ||
-    //                 row.original.status === RepairOrderStatus.InProgress);
-    //         return (
-    //             <TooltipProvider>
-    //                 <Tooltip>
-    //                     <TooltipTrigger
-    //                         className={cn(passedDeadline && 'text-red-600')}
-    //                     >
-    //                         {formatDate(date, 'MMM dd, yyyy')}
-    //                     </TooltipTrigger>
-    //                     <TooltipContent>
-    //                         {formatDateToHumanReadable(date, locale)}
-    //                     </TooltipContent>
-    //                 </Tooltip>
-    //             </TooltipProvider>
-    //         );
-    //     },
-    // },
-    // {
-    //     size: 100,
-    //     accessorKey: 'totalCost',
-    //     header: () => (
-    //         <TranslateText
-    //             text="Total Cost"
-    //             translationKey="Dashboard.repairOrders"
-    //         />
-    //     ),
-    // },
-    // {
-    //     size: 100,
-    //     accessorKey: 'status',
-    //     header: () => (
-    //         <TranslateText
-    //             text="Status"
-    //             translationKey="Dashboard.repairOrders"
-    //         />
-    //     ),
-    //     cell: ({ row }) => {
-    //         return (
-    //             <OrderStatusSwitcher
-    //                 orderId={row.original._id}
-    //                 currentStatus={row.original.status}
-    //             />
-    //         );
-    //     },
-    // },
 
     {
         size: 60,
         id: 'actions',
-
-        cell: ({ row }) => <TableRowActions data={row.original} />,
+        cell: ({ row }) => {
+            return (
+                <TooltipProvider delayDuration={500}>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Link
+                                href={`/refund_orders/${row.original.id}`}
+                                className={cn(
+                                    buttonVariants({
+                                        variant: 'outline',
+                                        size: 'icon',
+                                    }),
+                                    'h-8 w-8',
+                                )}
+                            >
+                                <ExternalLink className="h-5 w-5" />
+                            </Link>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <span>Open</span>
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
+            );
+        },
     },
 ];
