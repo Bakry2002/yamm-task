@@ -11,6 +11,7 @@ import { Item, RefundOrders } from '@prisma/client';
 import { ColumnDef } from '@tanstack/react-table';
 import Image from 'next/image';
 import Link from 'next/link';
+import { OrderActiveSwitcher } from './order-active-switcher';
 import { OrderDecisionSwitcher } from './order-decision-switcher';
 import { TableRowActions } from './table-row-actions';
 
@@ -104,7 +105,6 @@ export const columns: ColumnDef<
         },
     },
     {
-        size: 100,
         accessorKey: 'decicion',
         header: 'Decicion',
         cell: ({ row }) => {
@@ -112,6 +112,18 @@ export const columns: ColumnDef<
                 <OrderDecisionSwitcher
                     orderId={row.original.id}
                     currentDecision={row.original.decicion}
+                />
+            );
+        },
+    },
+    {
+        accessorKey: 'active',
+        header: 'Active',
+        cell: ({ row }) => {
+            return (
+                <OrderActiveSwitcher
+                    orderId={row.original.id}
+                    currentValue={row.original.active}
                 />
             );
         },

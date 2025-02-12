@@ -30,3 +30,10 @@ export const getDecisionColor = (decision: string) => {
             return 'bg-gray-100 text-gray-800 hover:bg-gray-200 border border-gray-400';
     }
 };
+
+export const formatEnum = (enumValue: string) => {
+    return enumValue
+        .toLowerCase()
+        .replace(/_/g, ' ')
+        .replace(/\b\w/g, (char) => char.toUpperCase());
+};

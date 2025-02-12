@@ -6,7 +6,7 @@ import {
     SelectValue,
 } from '@/components/ui/select';
 import { useChangeRefundOrderDecision } from '@/lib/services/mutations';
-import { cn, getDecisionColor } from '@/lib/utils';
+import { cn, formatEnum, getDecisionColor } from '@/lib/utils';
 import { DecicionType } from '@prisma/client';
 
 import {
@@ -14,6 +14,7 @@ import {
     CircleDotDashedIcon,
     CircleXIcon,
     Loader,
+    LoaderIcon,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -45,6 +46,8 @@ export const OrderDecisionSwitcher = ({
 
     const getDecisionIcon = (status: DecicionType) => {
         switch (status) {
+            case 'PENDING':
+                return <LoaderIcon className="h-4 w-4" />;
             case 'ACCEPTED':
                 return <CircleCheckIcon className="h-4 w-4" />;
             case 'REJECTED':
@@ -76,8 +79,12 @@ export const OrderDecisionSwitcher = ({
             </div>
             <SelectContent>
                 {Object.values(DecicionType).map((decicion) => (
-                    <SelectItem key={decicion} value={decicion}>
-                        {decicion}
+                    <SelectItem
+                        key={decicion}
+                        value={decicion}
+                        className="capitalize"
+                    >
+                        {formatEnum(decicion)}
                     </SelectItem>
                 ))}
             </SelectContent>

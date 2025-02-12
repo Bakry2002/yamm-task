@@ -22,3 +22,20 @@ export const changeOrderDecision = async ({
         )
     ).data;
 };
+
+export const toggleOrderActivation = async ({
+    id,
+    newValue,
+}: {
+    id: string;
+    newValue: boolean;
+}) => {
+    return (
+        await axios.post<ChangeOrderDecisionResponse>(
+            `/api/refund_orders/${id}/toggle_activation`,
+            {
+                newValue,
+            },
+        )
+    ).data;
+};
