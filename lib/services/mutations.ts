@@ -42,14 +42,10 @@ export const useChangeRefundOrderDecision = () => {
             toast.error(message);
         },
 
-        onSettled: (error) => {
-            if (error) {
-                console.log(error);
-            } else {
-                queryClient.invalidateQueries({
-                    queryKey: ['refund_orders'],
-                });
-            }
+        onSettled: () => {
+            queryClient.invalidateQueries({
+                queryKey: ['refund_orders'],
+            });
         },
     });
 };
@@ -90,14 +86,10 @@ export const useToggleRefundOrderActivation = () => {
             toast.error(message);
         },
 
-        onSettled: (error) => {
-            if (error) {
-                console.log(error);
-            } else {
-                queryClient.invalidateQueries({
-                    queryKey: ['refund_orders'],
-                });
-            }
+        onSettled: () => {
+            queryClient.invalidateQueries({
+                queryKey: ['refund_orders'],
+            });
         },
     });
 };
