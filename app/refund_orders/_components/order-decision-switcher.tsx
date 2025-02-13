@@ -17,7 +17,6 @@ import {
     Loader,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 
 export const OrderDecisionSwitcher = ({
     orderId,
@@ -27,19 +26,16 @@ export const OrderDecisionSwitcher = ({
     currentDecision: DecicionType;
 }) => {
     const router = useRouter();
-    const [isLoading, setIsLoading] = useState(false);
 
     const { mutateAsync: changeOrderStatus, isPending } =
         useChangeRefundOrderDecision();
 
     const onDecisionChange = async (decision: DecicionType) => {
         try {
-            setIsLoading(true);
             await changeOrderStatus({ id: orderId, newDecision: decision });
         } catch (error) {
             console.error(error);
         } finally {
-            setIsLoading(false);
             router.refresh();
         }
     };
@@ -80,9 +76,9 @@ export const OrderDecisionSwitcher = ({
                         'size-7 w-[130px] flex-1 justify-start text-left font-medium focus:ring-0 focus:ring-offset-0',
                         getDecisionColor(currentDecision),
                     )}
-                    disabled={isLoading}
+                    disabled={isPending}
                 >
-                    {isLoading ? (
+                    {isPending ? (
                         <div className="flex flex-1 items-center gap-2 font-medium capitalize">
                             <Loader className="size-3 animate-spin text-muted-foreground" />
                             <p className="font-medium">Loading...</p>

@@ -117,13 +117,13 @@ export const columns: ColumnDef<
     {
         size: 100,
         accessorKey: 'items',
-        header: 'Items Count',
+        header: '# of items',
         cell: ({ row }) => {
             const itemsCount = row.original.items.length;
             return (
-                <span>
-                    {itemsCount} {itemsCount === 1 ? 'Item' : 'Items'}
-                </span>
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 text-sm font-medium">
+                    {itemsCount}
+                </div>
             );
         },
     },
