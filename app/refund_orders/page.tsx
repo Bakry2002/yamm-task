@@ -2,9 +2,6 @@ import { Heading } from '@/components/heading';
 import PageContainer from '@/components/layout/page-container';
 import { Separator } from '@/components/ui/separator';
 import { RefundOrderListing } from './_components/refund-order-listing';
-// import { DataTableSkeleton } from '@/components/ui/table/data-table-skeleton';
-// import OrderListingPage from '@/features/repairOrders/components/order-listing';
-// import OrderTableAction from '@/features/repairOrders/components/order-table/order-table-action';
 
 export const metadata = {
     title: 'Dashboard: Refund Orders',
@@ -23,14 +20,6 @@ export default async function Page() {
                 <Separator />
 
                 <RefundOrderListing />
-                {/* <OrderTableAction />
-                <Suspense
-                    fallback={
-                        <DataTableSkeleton columnCount={5} rowCount={10} />
-                    }
-                >
-                    <OrderListingPage />
-                </Suspense> */}
             </div>
         </PageContainer>
     );

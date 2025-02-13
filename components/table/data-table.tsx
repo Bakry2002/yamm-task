@@ -1,13 +1,4 @@
 'use client';
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from '@/components/ui/table';
 import {
     ColumnDef,
     flexRender,
@@ -39,81 +30,76 @@ export function DataTable<TData, TValue>({
     });
 
     return (
-        <div className="flex flex-1 flex-col space-y-4">
+        <div className="relative flex flex-1 flex-col space-y-4">
             <div className="relative flex flex-1">
-                <div className="absolute bottom-0 left-0 right-0 top-0 flex overflow-scroll rounded-md border md:overflow-auto">
-                    <ScrollArea className="flex-1">
-                        <Table>
-                            <TableHeader>
+                <div className="absolute bottom-0 left-0 right-0 top-0 flex flex-col overflow-hidden rounded-md border">
+                    <div className="overflow-auto">
+                        <table className="w-full">
+                            <thead className="sticky top-0 z-10 bg-accent">
                                 {table.getHeaderGroups().map((headerGroup) => (
-                                    <TableRow key={headerGroup.id}>
-                                        {headerGroup.headers.map((header) => {
-                                            return (
-                                                <TableHead
-                                                    key={header.id}
-                                                    style={{
-                                                        width: header.getSize(),
-                                                    }}
-                                                >
-                                                    {header.isPlaceholder
-                                                        ? null
-                                                        : flexRender(
-                                                              header.column
-                                                                  .columnDef
-                                                                  .header,
-                                                              header.getContext(),
-                                                          )}
-                                                </TableHead>
-                                            );
-                                        })}
-                                    </TableRow>
+                                    <tr key={headerGroup.id}>
+                                        {headerGroup.headers.map((header) => (
+                                            <th
+                                                key={header.id}
+                                                style={{
+                                                    width: header.getSize(),
+                                                    minWidth: header.getSize(),
+                                                }}
+                                                className="h-10 border-b px-2 py-2.5 text-left align-middle font-medium text-muted-foreground first:pl-4"
+                                            >
+                                                {header.isPlaceholder
+                                                    ? null
+                                                    : flexRender(
+                                                          header.column
+                                                              .columnDef.header,
+                                                          header.getContext(),
+                                                      )}
+                                            </th>
+                                        ))}
+                                    </tr>
                                 ))}
-                            </TableHeader>
-                            <TableBody>
+                            </thead>
+                            <tbody>
                                 {table.getRowModel().rows?.length ? (
                                     table.getRowModel().rows.map((row) => (
-                                        <TableRow
+                                        <tr
                                             key={row.id}
-                                            data-state={
-                                                row.getIsSelected() &&
-                                                'selected'
-                                            }
+                                            className="border-b hover:bg-muted/50"
                                         >
                                             {row
                                                 .getVisibleCells()
                                                 .map((cell) => (
-                                                    <TableCell
+                                                    <td
                                                         key={cell.id}
                                                         style={{
                                                             width: cell.column.getSize(),
                                                         }}
+                                                        className="px-2 py-3 align-middle first:pl-4"
                                                     >
                                                         {flexRender(
                                                             cell.column
                                                                 .columnDef.cell,
                                                             cell.getContext(),
                                                         )}
-                                                    </TableCell>
+                                                    </td>
                                                 ))}
-                                        </TableRow>
+                                        </tr>
                                     ))
                                 ) : (
-                                    <TableRow>
-                                        <TableCell
+                                    <tr>
+                                        <td
                                             colSpan={columns.length}
                                             className="h-24 text-center"
                                         >
                                             No results.
-                                        </TableCell>
-                                    </TableRow>
+                                        </td>
+                                    </tr>
                                 )}
-                            </TableBody>
-                        </Table>
-                        <ScrollBar orientation="horizontal" />
-                    </ScrollArea>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-
             <DataTablePagination table={table} />
         </div>
     );

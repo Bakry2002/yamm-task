@@ -22,6 +22,7 @@ export const columns: ColumnDef<
     }
 >[] = [
     {
+        size: 60,
         accessorKey: 'id',
         header: 'ID',
         cell: ({ row }) => {
@@ -29,7 +30,7 @@ export const columns: ColumnDef<
             return (
                 <TooltipProvider delayDuration={500}>
                     <Tooltip>
-                        <TooltipTrigger className="pl-2">
+                        <TooltipTrigger>
                             {truncateString(id, 15)}
                         </TooltipTrigger>
                         <TooltipContent>{id}</TooltipContent>
@@ -39,15 +40,16 @@ export const columns: ColumnDef<
         },
     },
     {
-        size: 200,
+        size: 160,
         accessorKey: 'reason',
-        header: 'Reasoon',
+        header: 'Reason',
         cell: ({ row }) => {
             const reason = row.getValue('reason') as string;
             return <span>{reason}</span>;
         },
     },
     {
+        size: 160,
         accessorKey: 'store_name',
         header: 'Store',
         cell: ({ row }) => {
@@ -87,7 +89,7 @@ export const columns: ColumnDef<
         },
     },
     {
-        size: 80,
+        size: 100,
         accessorKey: 'items',
         header: 'Items Count',
         cell: ({ row }) => {
@@ -100,9 +102,9 @@ export const columns: ColumnDef<
         },
     },
     {
-        size: 60,
+        size: 100,
         accessorKey: 'decicion',
-        header: 'Decicion',
+        header: 'Decision',
         cell: ({ row }) => {
             return (
                 <OrderDecisionSwitcher
@@ -127,7 +129,7 @@ export const columns: ColumnDef<
     },
 
     {
-        size: 60,
+        size: 30,
         id: 'actions',
         cell: ({ row }) => {
             return (

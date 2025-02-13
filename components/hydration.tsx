@@ -23,10 +23,6 @@ export default async function Hydration({
             queryKey: ['refund_orders'],
             queryFn: () => getRefundOrders(),
         }),
-        // queryClient.prefetchQuery({
-        //     queryKey: ['permissions', 'user'],
-        //     queryFn: () => getData('permissions'),
-        // }),
     ]);
     return (
         <HydrationBoundary state={dehydrate(queryClient)}>

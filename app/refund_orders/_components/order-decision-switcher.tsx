@@ -83,7 +83,10 @@ export const OrderDecisionSwitcher = ({
                     disabled={isLoading}
                 >
                     {isLoading ? (
-                        <Loader className="size-3 flex-1 animate-spin text-muted-foreground" />
+                        <div className="flex flex-1 items-center gap-2 font-medium capitalize">
+                            <Loader className="size-3 animate-spin text-muted-foreground" />
+                            <p className="font-medium">Loading...</p>
+                        </div>
                     ) : (
                         <div className="flex flex-1 items-center gap-2 font-medium capitalize">
                             {getDecisionIcon(currentDecision)}

@@ -35,10 +35,120 @@ export const items = [
 
 export const refundOrders = [
     {
+        reason: 'Defective product',
+        store_name: 'Gadget Hub',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370824/logoipsum-299_tiyzn1.svg',
+        store_url: 'https://example.com/gadgethub',
+        amount: 180,
+        active: true,
+        decicion: DecicionType.PENDING,
+        items: [items[7]], // Laptop
+    },
+    {
+        reason: 'Different size received',
+        store_name: 'Clothing Store',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370824/logoipsum-346_bc2ozx.svg',
+        store_url: 'https://example.com/clothingstore',
+        amount: 60,
+        active: true,
+        decicion: DecicionType.PENDING,
+        items: [items[9]], // Summer Dress
+    },
+    {
+        reason: 'Packaging was damaged',
+        store_name: 'Book Haven',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370824/logoipsum-327_xnx6zf.svg',
+        store_url: 'https://example.com/bookhaven',
+        amount: 25,
+        active: false,
+        decicion: DecicionType.PENDING,
+        items: [items[3], items[4]], // The Lord of the Rings, The Hobbit
+    },
+    {
+        reason: 'Expired product',
+        store_name: 'Grocery Hub',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370824/logoipsum-299_tiyzn1.svg',
+        store_url: 'https://example.com/groceryhub',
+        amount: 40,
+        active: true,
+        decicion: DecicionType.PENDING,
+        items: [items[5], items[6]], // Milk, Bread
+    },
+    {
+        reason: 'Not satisfied with the quality',
+        store_name: 'Apparel Store',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-339_g3ps2u.svg',
+        store_url: 'https://example.com/apparelstore',
+        amount: 90,
+        active: true,
+        decicion: DecicionType.PENDING,
+        items: [items[10]], // Winter Coat
+    },
+    {
+        reason: 'Found cheaper elsewhere',
+        store_name: 'Electronics World',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370824/logoipsum-327_xnx6zf.svg',
+        store_url: 'https://example.com/electronicsworld',
+        amount: 100,
+        active: false,
+        decicion: DecicionType.PENDING,
+        items: [items[0]], // Gaming Headset
+    },
+    {
+        reason: 'Changed payment method',
+        store_name: 'Tech Supplies',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-339_g3ps2u.svg',
+        store_url: 'https://example.com/techsupplies',
+        amount: 20,
+        active: true,
+        decicion: DecicionType.PENDING,
+        items: [items[8]], // Charger
+    },
+    {
+        reason: 'Gift return',
+        store_name: 'Fashion Outlet',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-340_ndfjeg.svg',
+        store_url: 'https://example.com/fashionoutlet',
+        amount: 75,
+        active: true,
+        decicion: DecicionType.PENDING,
+        items: [items[2]], // Red Dress
+    },
+    {
+        reason: 'Item arrived late',
+        store_name: 'Online Books',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-339_g3ps2u.svg',
+        store_url: 'https://example.com/onlinebooks',
+        amount: 15,
+        active: false,
+        decicion: DecicionType.PENDING,
+        items: [items[3]], // The Lord of the Rings
+    },
+    {
+        reason: 'Duplicate payment',
+        store_name: 'Accessories Store',
+        store_logo:
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-340_ndfjeg.svg',
+        store_url: 'https://example.com/accessoriesstore',
+        amount: 20,
+        active: true,
+        decicion: DecicionType.PENDING,
+        items: [items[1]], // Mousepad
+    },
+    {
         reason: 'Damaged item received',
         store_name: 'Tech Emporium',
         store_logo:
-            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-294_uudf4f.svg',
+            'https://res.cloudinary.com/dn1whbvlu/image/upload/v1739370823/logoipsum-339_g3ps2u.svg',
         store_url: 'https://example.com/tech',
         amount: 150,
         active: true,
