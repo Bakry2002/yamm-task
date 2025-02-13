@@ -32,13 +32,13 @@ export const useChangeRefundOrderDecision = () => {
             }
         },
 
-        onError: (error: any) => {
+        onError: (
+            error: Error | { response?: { data?: { message?: string } } },
+        ) => {
             console.log(error);
-            // Assuming the error object contains a response with a message
             const message =
-                error.response?.data?.message ||
+                ('response' in error && error.response?.data?.message) ||
                 'Something went wrong while changing refund order decision. Please try again.';
-            // setErrorMessage(message);
             toast.error(message);
         },
 
@@ -78,11 +78,13 @@ export const useToggleRefundOrderActivation = () => {
             }
         },
 
-        onError: (error: any) => {
+        onError: (
+            error: Error | { response?: { data?: { message?: string } } },
+        ) => {
             console.log(error);
             // Assuming the error object contains a response with a message
             const message =
-                error.response?.data?.message ||
+                ('response' in error && error.response?.data?.message) ||
                 'Something went wrong while toggling order activation. Please try again.';
             // setErrorMessage(message);
             toast.error(message);
