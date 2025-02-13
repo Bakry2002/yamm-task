@@ -33,7 +33,7 @@ export const columns: ColumnDef<ItemType>[] = [
         accessorKey: 'name',
         header: 'Item Name',
         cell: ({ row }) => (
-            <div className="flex items-center font-medium">
+            <div className="flex items-center text-sm font-medium">
                 <ImageIcon className="mr-2 h-6 w-6" strokeWidth={1.5} />
                 {row.getValue('name')}
             </div>

@@ -16,13 +16,13 @@ export const ProgressCard = ({
 }: ProgressCardProps) => {
     return (
         <Card className="p-0">
-            <CardContent className="flex flex-col gap-y-4 p-2">
-                <div className="flex flex-col gap-y-1">
+            <CardContent className="flex h-full flex-col gap-y-4 p-2">
+                <div className="flex flex-1 flex-col gap-y-1">
                     <Icon
                         className="h-6 w-6 text-accent-foreground"
                         strokeWidth={1.5}
                     />
-                    <p className="font-medium">{title}</p>
+                    <p className="text-sm font-medium">{title}</p>
                 </div>
                 <Progress
                     value={value}
