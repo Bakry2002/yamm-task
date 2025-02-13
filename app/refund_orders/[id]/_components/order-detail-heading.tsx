@@ -21,14 +21,14 @@ export const OrderDetailHeading = ({ orderId }: OrderDetailHeadingProps) => {
     const router = useRouter();
     return (
         <div className="flex w-full items-start justify-between">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-4">
                 <TooltipProvider delayDuration={500}>
                     <Tooltip>
                         <TooltipTrigger asChild>
                             <Button
                                 variant="ghost"
                                 size="icon"
-                                className="h-8 w-8 border"
+                                className="h-9 w-9 border"
                                 onClick={() => router.back()}
                             >
                                 <CornerUpLeft className="h-4 w-4" />
@@ -40,9 +40,15 @@ export const OrderDetailHeading = ({ orderId }: OrderDetailHeadingProps) => {
                     </Tooltip>
                 </TooltipProvider>
 
-                <h2 className="text-2xl font-bold tracking-tight">
-                    {`# ${orderId}`}
-                </h2>
+                <div className="flex flex-col">
+                    <h2 className="text-2xl font-bold tracking-tight">
+                        {`# ${orderId}`}
+                    </h2>
+                    <p className="text-sm text-muted-foreground">
+                        Orders <span>/</span> Orders Details<span>/</span>{' '}
+                        {orderId} - 13 Feb, 2025 AT 12:00 PM
+                    </p>
+                </div>
             </div>
 
             <div className="flex items-center gap-3">

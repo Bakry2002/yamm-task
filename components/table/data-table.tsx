@@ -1,4 +1,5 @@
 'use client';
+import { cn } from '@/lib/utils';
 import {
     ColumnDef,
     flexRender,
@@ -11,11 +12,15 @@ import { DataTablePagination } from './data-table-pagination';
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[];
     data: TData[];
+    className?: string;
+    headerClassName?: string;
 }
 
 export function DataTable<TData, TValue>({
     columns,
     data,
+    className,
+    headerClassName,
 }: DataTableProps<TData, TValue>) {
     const table = useReactTable({
         data,
@@ -31,11 +36,21 @@ export function DataTable<TData, TValue>({
 
     return (
         <div className="relative flex flex-1 flex-col space-y-4">
-            <div className="relative flex flex-1">
-                <div className="absolute bottom-0 left-0 right-0 top-0 flex flex-col overflow-hidden rounded-md border">
+            <div className="relative flex flex-1 rounded-lg bg-background">
+                <div
+                    className={cn(
+                        'absolute bottom-0 left-0 right-0 top-0 flex flex-col overflow-hidden rounded-md border',
+                        className,
+                    )}
+                >
                     <div className="overflow-auto">
                         <table className="w-full">
-                            <thead className="sticky top-0 z-10 bg-accent">
+                            <thead
+                                className={cn(
+                                    'sticky top-0 z-10 bg-accent',
+                                    headerClassName,
+                                )}
+                            >
                                 {table.getHeaderGroups().map((headerGroup) => (
                                     <tr key={headerGroup.id}>
                                         {headerGroup.headers.map((header) => (

@@ -1,44 +1,29 @@
 import { ItemType } from '@/types';
 import { ColumnDef } from '@tanstack/react-table';
-import { formatDate } from 'date-fns';
+import { ImageIcon } from 'lucide-react';
 
 export const columns: ColumnDef<ItemType>[] = [
     {
-        size: 30,
         accessorKey: 'name',
         header: 'Item Name',
         cell: ({ row }) => (
-            <div className="font-medium">{row.getValue('name')}</div>
-        ),
-    },
-    {
-        size: 60,
-        accessorKey: 'quantity',
-        header: 'Quantity',
-        cell: ({ row }) => (
-            <div className="text-center">{row.getValue('quantity')}</div>
-        ),
-    },
-    {
-        size: 60,
-        accessorKey: 'price',
-        header: 'Price',
-        cell: ({ row }) => (
-            <div className="text-right">
-                ${Number(row.getValue('price')).toFixed(2)}
+            <div className="flex items-center font-medium">
+                <ImageIcon className="mr-2 h-6 w-6" strokeWidth={1.5} />
+                {row.getValue('name')}
             </div>
         ),
     },
     {
-        size: 200,
-        accessorKey: 'created_at',
-        header: 'Date',
+        accessorKey: 'quantity',
+        header: 'Quantity',
+        cell: ({ row }) => <div>{row.getValue('quantity')}</div>,
+    },
+    {
+        accessorKey: 'price',
+        header: 'Price',
         cell: ({ row }) => (
-            <div className="text-right">
-                {formatDate(
-                    new Date(row.getValue('created_at')),
-                    'MMM dd, yyyy',
-                )}
+            <div>
+                {Number(row.getValue('price')).toFixed(2)} <small>SAR</small>
             </div>
         ),
     },
