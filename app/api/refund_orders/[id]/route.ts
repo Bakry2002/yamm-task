@@ -1,9 +1,6 @@
 import db from '@/lib/db';
 
-export async function GET(
-    request: Request,
-    { params }: { params: { id: string } },
-) {
+export async function GET({ params }: { params: { id: string } }) {
     const { id } = params;
 
     if (!id) {

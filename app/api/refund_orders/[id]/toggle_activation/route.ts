@@ -46,6 +46,7 @@ export async function POST(
             data: updatedOrder,
         });
     } catch (error) {
+        console.log('error', error);
         return NextResponse.json(
             {
                 success: false,
