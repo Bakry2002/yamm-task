@@ -42,7 +42,7 @@ export const useChangeRefundOrderDecision = () => {
             toast.error(message);
         },
 
-        onSettled: (_, error, __) => {
+        onSettled: (error) => {
             if (error) {
                 console.log(error);
             } else {
@@ -88,7 +88,7 @@ export const useToggleRefundOrderActivation = () => {
             toast.error(message);
         },
 
-        onSettled: (_, error, __) => {
+        onSettled: (error) => {
             if (error) {
                 console.log(error);
             } else {

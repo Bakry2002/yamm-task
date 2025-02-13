@@ -3,16 +3,12 @@ import { DataTable as OrderItemsTable } from '@/components/table/data-table';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 import { getRefundOrder } from '@/lib/services/queries';
-import { DehydratedState, useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { columns } from './table-columns';
 interface OrderItemListingProps {
     orderId: string;
-    dehydratedState: DehydratedState;
 }
-export default function OrderItemListing({
-    orderId,
-    dehydratedState,
-}: OrderItemListingProps) {
+export default function OrderItemListing({ orderId }: OrderItemListingProps) {
     const { data, isLoading } = useQuery({
         queryKey: ['refund_orders', orderId],
         queryFn: () => getRefundOrder(orderId),

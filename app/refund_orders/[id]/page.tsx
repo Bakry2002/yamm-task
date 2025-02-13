@@ -39,7 +39,7 @@ export default async function Page(props: PageProps) {
         queryKey: ['refund_orders', params.id],
         queryFn: () => getRefundOrder(params.id),
     });
-    const dehydratedState = dehydrate(queryClient);
+    dehydrate(queryClient);
 
     return (
         <PageContainer scrollable={false} className="bg-accent">
@@ -93,10 +93,7 @@ export default async function Page(props: PageProps) {
                             </CardContent>
                         </Card>
 
-                        <OrderItemListing
-                            orderId={params.id}
-                            dehydratedState={dehydratedState}
-                        />
+                        <OrderItemListing orderId={params.id} />
                     </div>
 
                     {/* Static data */}
