@@ -6,9 +6,7 @@ A modern Next.js application for managing refund orders with a clean UI and robu
 
 - **Refund Orders Dashboard**
   - View all refund orders in a paginated table
-  - Sort and filter orders
   - Real-time status updates
-  - CSV export functionality
 
 - **Order Details**
   - Detailed view of individual orders
